@@ -1,12 +1,12 @@
 import { DataTypes, Model, Optional } from 'sequelize'
 import connection from '../../config/dbConnect'
 
-interface PersonAttributes {
+export interface PersonAttributes {
   id?: number
-  name?: string
-  email?: string
+  name: string
+  email: string
   role?: string | null
-  active?: boolean
+  active: boolean
 
   createdAt?: Date
   updatedAt?: Date
