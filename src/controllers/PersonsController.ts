@@ -29,7 +29,7 @@ class PersonController {
     }
   }
 
-  static async createPerson(req: Request, res: Response): Promise<Response> {
+  static async create(req: Request, res: Response): Promise<Response> {
     const newPerson = req.body
 
     try {
@@ -43,7 +43,7 @@ class PersonController {
     }
   }
 
-  static async updatePerson(req: Request, res: Response): Promise<Response> {
+  static async update(req: Request, res: Response): Promise<Response> {
     const newDataPerson = req.body
     const { id } = req.params
 
@@ -61,7 +61,7 @@ class PersonController {
     }
   }
 
-  static async deletePerson(req: Request, res: Response): Promise<Response> {
+  static async delete(req: Request, res: Response): Promise<Response> {
     const { id } = req.params
 
     try {
