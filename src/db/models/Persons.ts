@@ -40,6 +40,7 @@ Persons.init(
     timestamps: true,
     sequelize: connection,
     underscored: false,
+    modelName: 'Persons',
   }
 )
 
