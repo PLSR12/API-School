@@ -1,13 +1,12 @@
 import { DataTypes, Model, Optional } from 'sequelize'
 import connection from '../../config/dbConnect'
 
-interface PersonAttributes {
+export interface PersonAttributes {
   id?: number
-  name?: string
-  email?: string
+  name: string
+  email: string
   role?: string | null
-  active?: boolean
-
+  active: boolean
   createdAt?: Date
   updatedAt?: Date
 }
@@ -30,6 +29,12 @@ class Persons
 }
 Persons.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
+    },
     name: DataTypes.STRING,
     active: DataTypes.BOOLEAN,
     email: DataTypes.STRING,
@@ -40,6 +45,7 @@ Persons.init(
     timestamps: true,
     sequelize: connection,
     underscored: false,
+    modelName: 'Persons',
   }
 )
 
