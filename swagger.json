@@ -1,0 +1,622 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "School API",
+    "description": "Documentation from School api",
+    "version": "1.0.0"
+  },
+  "basePath": "/",
+
+  "components": {
+    "securitySchemes": {}
+  },
+
+  "paths": {
+    "/persons": {
+      "post": {
+        "tags": ["Persons"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  }
+                },
+
+                "example": {
+                  "name": "STRING",
+                  "email": "STRING",
+                  "active": true,
+                  "role": "STRING"
+                }
+              }
+            }
+          }
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Persons"],
+        "requestBody": {
+          "content": {}
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+
+    "/persons/{id}": {
+      "get": {
+        "tags": ["Persons"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "format": "id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {}
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Persons"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "format": "id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "active": {
+                    "type": "boolean"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  }
+                },
+
+                "example": {
+                  "name": "STRING",
+                  "email": "STRING",
+                  "active": true,
+                  "role": "STRING"
+                }
+              }
+            }
+          }
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Persons"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "format": "id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {}
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/persons/{studentId}/registration/{registrationId}": {
+      "get": {
+        "tags": ["Persons"],
+        "parameters": [
+          {
+            "name": "studentId",
+            "in": "path",
+            "type": "string",
+            "format": "id",
+            "required": true
+          },
+          {
+            "name": "registrationId",
+            "in": "path",
+            "type": "string",
+            "format": "id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {}
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Persons"],
+        "parameters": [
+          {
+            "name": "studentId",
+            "in": "path",
+            "type": "string",
+            "format": "id",
+            "required": true
+          },
+          {
+            "name": "registrationId",
+            "in": "path",
+            "type": "string",
+            "format": "id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string" }
+                }
+              }
+            }
+          },
+          "example": {
+            "status": "STRING"
+          }
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Persons"],
+        "parameters": [
+          {
+            "name": "studentId",
+            "in": "path",
+            "type": "string",
+            "format": "id",
+            "required": true
+          },
+          {
+            "name": "registrationId",
+            "in": "path",
+            "type": "string",
+            "format": "id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {}
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/persons/{studentId}/registration": {
+      "post": {
+        "tags": ["Persons"],
+        "parameters": [
+          {
+            "name": "studentId",
+            "in": "path",
+            "type": "string",
+            "format": "id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string" },
+                  "class_id": { "type": "number" }
+                }
+              }
+            }
+          },
+          "example": {
+            "status": "STRING",
+            "class_id": 1
+          }
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/levels": {
+      "post": {
+        "tags": ["Levels"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "descr_level": {
+                    "type": "string"
+                  }
+                },
+
+                "example": {
+                  "descr_level": "STRING"
+                }
+              }
+            }
+          }
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Levels"],
+        "requestBody": {
+          "content": {}
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+
+    "/levels/{id}": {
+      "get": {
+        "tags": ["Levels"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "format": "id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {}
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Levels"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "format": "id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "descr_level": {
+                    "type": "string"
+                  }
+                },
+
+                "example": {
+                  "descr_level": "STRING"
+                }
+              }
+            }
+          }
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Levels"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "format": "id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {}
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/classes": {
+      "post": {
+        "tags": ["Classes"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "class_id": {
+                    "type": "number"
+                  },
+                  "teacher_id": {
+                    "type": "number"
+                  },
+                  "level_id": {
+                    "type": "number"
+                  },
+                  "date_start": {
+                    "type": "date"
+                  }
+                },
+
+                "example": {
+                  "class_id": 1,
+                  "teacher_id": 1,
+                  "level_id": 1,
+                  "date_start": "STRING"
+                }
+              }
+            }
+          }
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Classes"],
+        "requestBody": {
+          "content": {}
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+
+    "/classes/{id}": {
+      "get": {
+        "tags": ["Classes"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "format": "id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {}
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Classes"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "format": "id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "class_id": {
+                    "type": "number"
+                  },
+                  "teacher_id": {
+                    "type": "number"
+                  },
+                  "level_id": {
+                    "type": "number"
+                  },
+                  "date_start": {
+                    "type": "date"
+                  }
+                },
+
+                "example": {
+                  "class_id": 1,
+                  "teacher_id": 1,
+                  "level_id": 1,
+                  "date_start": "STRING"
+                }
+              }
+            }
+          }
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Classes"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "format": "id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {}
+        },
+
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
