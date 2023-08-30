@@ -7,7 +7,6 @@ export interface PersonAttributes {
   email: string
   role?: string | null
   active: boolean
-
   createdAt?: Date
   updatedAt?: Date
 }
@@ -30,6 +29,12 @@ class Persons
 }
 Persons.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
+    },
     name: DataTypes.STRING,
     active: DataTypes.BOOLEAN,
     email: DataTypes.STRING,
