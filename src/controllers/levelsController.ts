@@ -9,7 +9,7 @@ class LevelController {
 
       return res
         .status(200)
-        .send(Helper.ResponseData(200, 'Getted', null, allLevels))
+        .send(Helper.ResponseData(200, null, null, allLevels))
     } catch (error) {
       console.log(error)
 
@@ -20,42 +20,42 @@ class LevelController {
   static async getOne(req: Request, res: Response): Promise<Response> {
     const { id } = req.params
     try {
-      const onePerson: LevelAttributes | null = await Levels.findByPk(id)
+      const oneLevel: LevelAttributes | null = await Levels.findByPk(id)
       return res
         .status(200)
-        .send(Helper.ResponseData(200, 'Getted', null, onePerson))
+        .send(Helper.ResponseData(200, null, null, oneLevel))
     } catch (error) {
       return res.status(500).send(Helper.ResponseData(500, '', error, null))
     }
   }
 
   static async create(req: Request, res: Response): Promise<Response> {
-    const newPerson = req.body
+    const newLevel = req.body
 
     try {
-      const newPersonCreated: LevelAttributes = await Levels.create(newPerson)
+      const newLevelCreated: LevelAttributes = await Levels.create(newLevel)
 
       return res
         .status(201)
-        .send(Helper.ResponseData(201, 'Created', null, newPersonCreated))
+        .send(Helper.ResponseData(201, null, null, newLevelCreated))
     } catch (error) {
       return res.status(500).send(Helper.ResponseData(500, '', error, null))
     }
   }
 
   static async update(req: Request, res: Response): Promise<Response> {
-    const newDataPerson = req.body
+    const newDataLevel = req.body
     const { id } = req.params
 
     try {
-      await Levels.update(newDataPerson, {
+      await Levels.update(newDataLevel, {
         where: { id: Number(id) },
       })
-      const personUpdated: LevelAttributes | null = await Levels.findByPk(id)
+      const levelUpdated: LevelAttributes | null = await Levels.findByPk(id)
 
       return res
         .status(200)
-        .send(Helper.ResponseData(200, 'Updated', null, personUpdated))
+        .send(Helper.ResponseData(200, null, null, levelUpdated))
     } catch (error) {
       return res.status(500).send(Helper.ResponseData(500, '', error, null))
     }
@@ -66,11 +66,9 @@ class LevelController {
 
     try {
       await Levels.destroy({ where: { id: Number(id) } })
-      return res.status(200).send(
-        Helper.ResponseData(200, 'Deleted', null, {
-          message: 'deleted successfully',
-        })
-      )
+      return res
+        .status(204)
+        .send(Helper.ResponseData(204, 'Deleted', null, null))
     } catch (error) {
       return res.status(500).send(Helper.ResponseData(500, '', error, null))
     }

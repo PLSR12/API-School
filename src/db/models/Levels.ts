@@ -11,7 +11,7 @@ export interface LevelAttributes {
 export interface LevelInput extends Optional<LevelAttributes, 'id'> {}
 export interface LevelOutput extends Required<LevelAttributes> {}
 
-class Persons
+class Levels
   extends Model<LevelAttributes, LevelInput>
   implements LevelAttributes
 {
@@ -21,8 +21,14 @@ class Persons
   public readonly createdAt!: Date
   public readonly updatedAt!: Date
 }
-Persons.init(
+Levels.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
+    },
     descr_level: DataTypes.STRING,
   },
 
@@ -34,4 +40,4 @@ Persons.init(
   }
 )
 
-export default Persons
+export default Levels
